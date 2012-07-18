@@ -11,3 +11,7 @@ Expense.blueprint do
 	amount { 199.99 }
 	user { User.make! }
 end
+
+Transaction.blueprint do
+  # Attributes here
+end

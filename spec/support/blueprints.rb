@@ -12,6 +12,8 @@ Expense.blueprint do
 	user { User.make! }
 end
 
-Transaction.blueprint do
-  # Attributes here
+Income.blueprint do
+	description { "I win the Lotery" }
+	amount { 5000 }
+	user { User.make! }
 end

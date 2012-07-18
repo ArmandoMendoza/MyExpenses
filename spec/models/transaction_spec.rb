@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Transaction do
-  pending "add some examples to (or delete) #{__FILE__}"
+  pending "This model not have test because it is a parent of a STI relation"
 end

@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   validates :name, :email, :password, presence: true
+
+  has_many :expenses
 end

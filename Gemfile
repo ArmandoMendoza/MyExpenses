@@ -17,6 +17,7 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'machinist', '>= 2.0.0.beta2'
 	gem 'capybara'
+	gem 'faker'
 end
 
 # To use ActiveModel has_secure_password

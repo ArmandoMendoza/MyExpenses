@@ -1,2 +1,8 @@
-<h1>Expenses#index</h1>
-<p>Find me in app/views/expenses/index.html.erb</p>
+<h1>Mis Gastos</h1>
+<% @expenses.each do |expense| %>
+	<%= expense.date %>
+	<%= expense.description %>
+	<%= expense.amount %>
+<% end %>
+
+<%= link_to "Nuevo Gasto", new_expense_path %>

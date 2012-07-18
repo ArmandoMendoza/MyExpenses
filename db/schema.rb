@@ -11,18 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120718032923) do
-
-  create_table "expenses", :force => true do |t|
-    t.string   "description"
-    t.decimal  "amount",      :precision => 20, :scale => 2
-    t.integer  "user_id"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.date     "date"
-  end
-
-  add_index "expenses", ["user_id"], :name => "index_expenses_on_user_id"
+ActiveRecord::Schema.define(:version => 20120718040656) do
 
   create_table "incomes", :force => true do |t|
     t.string   "description"

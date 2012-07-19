@@ -19,6 +19,11 @@ describe Expense do
 		@expense.should_not be_valid
 	end
 
+	it "should be invalid if amount not is numeric" do
+		@expense.amount = "adas123"
+		@expense.should_not be_valid
+	end
+
 	context "when date no present" do
 		it "should assign created_at attribute to date" do
 			@expense.save

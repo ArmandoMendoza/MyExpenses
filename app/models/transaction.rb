@@ -1,6 +1,7 @@
 class Transaction < ActiveRecord::Base
   attr_accessible :amount, :date, :description
-  validates :description, :amount, presence: true
+  validates :description, presence: true
+  validates :amount, numericality: true, presence: true
 
   belongs_to :user
 

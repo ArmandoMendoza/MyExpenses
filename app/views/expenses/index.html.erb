@@ -1,0 +1,23 @@
+<h2>Gastos</h2>
+<%= link_icon_to "Nuevo Gasto", "icon-plus icon-white",
+									new_expense_path, class: "btn btn-success"  %>
+<table class="table table-striped">
+	<thead>
+		<th>Fecha</th>
+		<th>Descripcion</th>
+		<th>Monto</th>
+		<th colspan=6>Acciones</th>
+	</thead>
+	<tbody>
+		<% @expenses.each do |expense| %>
+		<tr>
+			<td><%= expense.date.strftime("%d-%m-%Y") %></td>
+			<td><%= expense.description %></td>
+			<td><%= number_to_currency(expense.amount) %></td>
+			<td><%= link_icon_to "", "icon-edit", edit_expense_path(expense), title: "Editar" %></td>
+			<td><%= link_icon_to "", "icon-trash", expense_path(expense), title: "Eliminar",
+													 data: { confirm: "¿Esta Seguro?"},  method: :delete %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -28,4 +28,10 @@ class ExpensesController < ApplicationController
       render action: "edit"
     end
   end
+
+  def destroy
+    @expense = Expense.find(params[:id])
+    @expense.destroy
+    redirect_to expenses_path, notice: "Gasto eliminado."
+  end
 end

@@ -1,0 +1,17 @@
+es:
+  activerecord:
+    models:
+      user: Usuario
+      expense: Gasto
+      income: Ingreso
+    attributes:
+      user:
+        name: Nombre
+      expense:
+        description: Descripcion
+        amount: Monto
+        date: Fecha
+      income:
+        description: Descripcion
+        amount: Monto
+        date: Fecha

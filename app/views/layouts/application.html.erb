@@ -11,6 +11,7 @@
   	<%= navbar("Expenses!") do %>
   		<%= content_tag(:li, link_to("Hello")) %>
   		<%= content_tag(:li, link_to("world")) %>
+      <%= content_tag(:li, link_to("Logout", destroy_user_session_path, :method => :delete)) %>
   	<% end %>
     <div class="row-fluid">
     	<div class="span12">

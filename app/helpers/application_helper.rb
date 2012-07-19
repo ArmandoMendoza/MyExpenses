@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+	def link_icon_to(name = "", icon = "", path = "#",  options_link = {})
+		link_to(path, options_link) do
+			content_tag(:i, "", class: icon) + " #{name}"
+		end
+	end
+
 	def alert_type(name, msg)
 		type = name == :notice ? "success" : "error"
 		class_name = "alert alert-#{type}"

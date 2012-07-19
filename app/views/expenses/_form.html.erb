@@ -1,6 +1,16 @@
-<%= simple_form_for @expense do |f| %>
-<%= f.input :description %>
-<%= f.input :amount %>
-<%= f.input :date %>
-<%= f.submit %>
+<%= simple_form_for @expense, html: { class: "well"} do |f| %>
+ 	<div class="form-inputs">
+		<%= f.input :description, input_html: { class: "span3" } %>
+
+		<%= f.input :amount, wrapper: "prepend" do %>
+			<%= content_tag(:div, "Bsf.", class: "add-on") %>
+			<%= f.input_field :amount, class: "span1" %>
+		<% end %>
+
+		<%= f.input :date %>
+	</div>
+	<div class="form-actions">
+		<%= f.submit class: "btn" %>
+		<%= link_to "Volver", expenses_path, class: "btn" %>
+	</div>
 <% end %>

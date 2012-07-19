@@ -1,8 +1,18 @@
-<h1>Mis Gastos</h1>
-<% @expenses.each do |expense| %>
-	<%= expense.date %>
-	<%= expense.description %>
-	<%= expense.amount %>
-<% end %>
-
-<%= link_to "Nuevo Gasto", new_expense_path %>
+<h2>Gastos</h2>
+<%= link_to("Nuevo Gasto", new_expense_path, class: "btn btn-success") %>
+<table class="table">
+	<thead>
+		<th>Fecha</th>
+		<th>Descripcion</th>
+		<th>Monto</th>
+	</thead>
+	<tbody>
+		<% @expenses.each do |expense| %>
+		<tr>
+			<td><%= expense.date.strftime("%d-%m-%Y") %></td>
+			<td><%= expense.description %></td>
+			<td><%= number_to_currency(expense.amount) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

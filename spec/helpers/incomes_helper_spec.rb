@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe ExpensesHelper do
+describe IncomesHelper do
 end

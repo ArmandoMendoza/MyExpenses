@@ -1,0 +1,23 @@
+<h2>Ingresos</h2>
+<%= link_icon_to "Nuevo Ingreso", "icon-plus icon-white",
+									new_income_path, class: "btn btn-success"  %>
+<table class="table table-striped">
+	<thead>
+		<th>Fecha</th>
+		<th>Descripcion</th>
+		<th>Monto</th>
+		<th colspan=6>Acciones</th>
+	</thead>
+	<tbody>
+		<% @incomes.each do |income| %>
+		<tr>
+			<td><%= income.date.strftime("%d-%m-%Y") %></td>
+			<td><%= income.description %></td>
+			<td><%= number_to_currency(income.amount) %></td>
+			<td><%= link_icon_to "", "icon-edit", edit_income_path(income), title: "Editar" %></td>
+			<td><%= link_icon_to "", "icon-trash", income_path(income), title: "Eliminar",
+													 data: { confirm: "¿Esta Seguro?"},  method: :delete %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

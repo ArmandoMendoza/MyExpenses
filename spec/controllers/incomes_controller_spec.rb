@@ -1,9 +1,8 @@
 require 'spec_helper'
 
-describe ExpensesController do
+describe IncomesController do
   login_user
-  before { @expense = Expense.make! }
-
+  before { @income = Income.make! }
 
   describe "GET 'index'" do
     it "returns http success" do
@@ -21,7 +20,7 @@ describe ExpensesController do
 
   describe "GET 'edit'" do
     it "returns http success" do
-      get 'edit', id: @expense.id
+      get 'edit', id: @income.id
       response.should be_success
     end
   end

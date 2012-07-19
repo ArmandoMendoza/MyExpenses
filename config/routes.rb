@@ -3,6 +3,7 @@ MyExpenses::Application.routes.draw do
   devise_for :users
 
   resources :expenses, except: :show
+  resources :incomes, except: :show
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

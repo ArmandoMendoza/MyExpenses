@@ -9,8 +9,7 @@
 <body>
   <div class="container-fluid">
   	<%= navbar("Expenses!") do %>
-  		<%= content_tag(:li, link_to("Hello")) %>
-  		<%= content_tag(:li, link_to("world")) %>
+  		<%= content_tag(:li, link_to(current_user.name, edit_user_registration_path)) if user_signed_in? %>
       <%= content_tag(:li, link_for_login) %>
   	<% end %>
     <div class="row-fluid">

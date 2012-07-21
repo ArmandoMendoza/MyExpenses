@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+	def month_to_words(month)
+		t("date.month_names")[month].capitalize
+	end
+
 	def link_for_login
 		if user_signed_in?
 			link = link_to('Logout', destroy_user_session_path, :method => :delete)
@@ -27,7 +31,7 @@ module ApplicationHelper
 		content_tag(:div, class: "navbar") do
 			content_tag(:div, class: "navbar-inner") do
 				content_tag(:div, class: "container") do
-					link_to(title,"#", class: "brand") +
+					link_to(title, root_path, class: "brand") +
 					content_tag(:ul, class: "nav") do
 						yield
 					end

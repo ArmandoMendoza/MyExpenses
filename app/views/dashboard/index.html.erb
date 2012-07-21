@@ -1,0 +1,19 @@
+<h2> Hola <%= current_user.name %>!</h2>
+<p>
+Tu balance actual es:
+<%= label_for_balance(current_user.balance) %>
+</p>
+
+En el mes de <%= month_to_words(Date.today.month) %>
+<p>
+Tus gastos son de
+<%= label_for_amount(current_user.total_expenses_at_month) %>
+</p>
+<p>
+Tus ingresos son de
+<%= label_for_amount(current_user.total_incomes_at_month) %>
+</p>
+<%= link_icon_to "Nuevo Gasto", "icon-download icon-white", new_expense_path,
+								 class: "btn btn-primary" %>
+<%= link_icon_to "Nuevo Ingreso", "icon-upload icon-white", new_income_path,
+								 class: "btn btn-warning" %>

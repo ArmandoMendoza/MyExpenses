@@ -1,5 +1,4 @@
 <h2>Editar Datos</h2>
-
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= f.error_notification %>
 
@@ -9,8 +8,10 @@
     <%= f.input :password, :autocomplete => "off",
                 :hint => "Dejalo en blanco si no lo quieres cambiar.",
                 :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password,
+    <%= f.label "Confirmacion de Password" %>
+    <%= f.input_field :password_confirmation, :required => false %>
+    <%= f.label "Password actual" %>
+    <%= f.input_field :current_password,
                 :hint => "Necesitamos tu password actual para efectual cualquier cambio.",
                 :required => true %>
   </div>

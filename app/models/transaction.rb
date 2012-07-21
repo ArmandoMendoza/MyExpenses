@@ -5,7 +5,8 @@ class Transaction < ActiveRecord::Base
 
   belongs_to :user
 
-  after_create :check_date
+  before_create :check_date
+  before_save :capitalize_description
 
   def self.at_month(month = Date.today.month)
   	where('month(date) = ?', month)
@@ -18,6 +19,10 @@ class Transaction < ActiveRecord::Base
   private
 
 	def check_date
-		self.update_attribute(:date, self.created_at) unless self.date.present?
+		self.date = Date.today unless self.date.present?
 	end
+
+  def capitalize_description
+    self.description = self.description.capitalize
+  end
 end

@@ -19,16 +19,22 @@ describe Income do
 		@income.should_not be_valid
 	end
 
+	it "should capitalize a describe after save" do
+		@income.description = "buy a car!"
+		@income.save
+		@income.description.should eq("Buy a car!")
+	end
+
 	context "when date no present" do
 		it "should assign created_at attribute to date" do
 			@income.save
-			@income.date.should eq(@income.created_at)
+			@income.date.should eq(Date.today)
 		end
 	end
 
 	context "when date present" do
 		it "should have the same date" do
-			date = Time.now
+			date = Time.now + 10
 			@income.date = date
 			@income.save
 			@income.date.should eq(date)

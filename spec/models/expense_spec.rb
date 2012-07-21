@@ -27,13 +27,13 @@ describe Expense do
 	context "when date no present" do
 		it "should assign created_at attribute to date" do
 			@expense.save
-			@expense.date.should eq(@expense.created_at)
+			@expense.date.should eq(Date.today)
 		end
 	end
 
 	context "when date present" do
 		it "should have the same date" do
-			date = Time.now
+			date = Time.now + 10
 			@expense.date = date
 			@expense.save
 			@expense.date.should eq(date)

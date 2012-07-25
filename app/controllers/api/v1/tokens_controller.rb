@@ -1,8 +1,6 @@
-class Api::V1::TokensController < ApplicationController
-	skip_before_filter :authenticate_user!
-	skip_before_filter :verify_authenticity_token
+class Api::V1::TokensController < Api::V1::BaseController
+	skip_before_filter :authenticate_user
 	before_filter :check_user
-	respond_to :json
 
 	def create
 		password = params[:password]

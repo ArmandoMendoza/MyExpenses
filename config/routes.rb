@@ -7,5 +7,12 @@ MyExpenses::Application.routes.draw do
   resources :expenses, except: :show
   resources :incomes, except: :show
 
+	#API routes
+	namespace :api do
+		namespace :v1 do
+			resources :tokens, only: [:create]
+		end
+	end
+
   get "dashboard/index"
 end

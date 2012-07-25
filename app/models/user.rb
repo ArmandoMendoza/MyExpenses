@@ -3,14 +3,17 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable, recoverable
   devise :database_authenticatable, :registerable,
-         :rememberable, :trackable, :validatable
+         :rememberable, :trackable, :validatable,
+         :token_authenticatable
 
 
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   validates :name, :email, :password, presence: true
 
-  has_many :expenses
-  has_many :incomes
+  has_many :expenses, dependent: :delete_all
+  has_many :incomes, dependent: :delete_all
+
+  before_save :ensure_authentication_token
 
   def expenses_at_month(month = Date.today.month)
     expenses.at_month(month)

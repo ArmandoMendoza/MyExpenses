@@ -15,6 +15,8 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
   config.include RequestMacros, type: :request
+  # Helper for test API
+  config.include ApiHelper, type: :api
 
   config.mock_with :rspec
 

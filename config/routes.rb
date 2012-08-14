@@ -11,7 +11,8 @@ MyExpenses::Application.routes.draw do
 	namespace :api do
 		namespace :v1 do
 			resources :tokens, only: [:create]
-			resources :expenses, only: [:index, :create, :update, :destroy]
+			resources :incomes, except: [:new, :edit, :show]
+			resources :expenses, except: [:new, :edit, :show]
 		end
 	end
 
